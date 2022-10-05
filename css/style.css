@@ -1,41 +1,18 @@
-/*
-	Cosmix by TEMPLATE STOCK
-	templatestock.co @templatestock
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Open+Sans:wght@300;400;500;600&display=swap');
 
 * {
   margin: 0 auto;
 }
-@font-face {
-  font-family: "helvetica_ce_55_romanregular";
-  src: url("../fonts/helvetica_neue_ce_55_roman-webfont.eot");
-  src: url("../fonts/helvetica_neue_ce_55_roman-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/helvetica_neue_ce_55_roman-webfont.woff2") format("woff2"),
-    url("../fonts/helvetica_neue_ce_55_roman-webfont.woff") format("woff"),
-    url("../fonts/helvetica_neue_ce_55_roman-webfont.ttf") format("truetype"),
-    url("../fonts/helvetica_neue_ce_55_roman-webfont.svg#helvetica_ce_55_romanregular")
-      format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "open_sansregular";
-  src: url("../fonts/opensans-regular-webfont.eot");
-  src: url("../fonts/opensans-regular-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/opensans-regular-webfont.woff2") format("woff2"),
-    url("../fonts/opensans-regular-webfont.woff") format("woff"),
-    url("../fonts/opensans-regular-webfont.ttf") format("truetype"),
-    url("../fonts/opensans-regular-webfont.svg#open_sansregular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+
+
 body {
-  font-family: "helvetica_ce_55_romanregular";
+  font-family: 'Barlow', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  font-family: 'Fraunces', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 /*for-section-text-start-here*/
+
 ::selection {
   background: #59403a; /* WebKit/Blink Browsers */
   color: #fff;
@@ -143,7 +120,10 @@ p {
   color: #666;
   font-weight: bolder;
   line-height: 25px;
-  font-family: "open_sansregular";
+  font-family: 'Barlow', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  font-family: 'Fraunces', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 h1,
 h2,
@@ -157,7 +137,10 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "helvetica_ce_55_romanregular";
+  font-family: 'Barlow', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  font-family: 'Fraunces', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 h1 {
   color: #fff;
@@ -199,6 +182,23 @@ span {
   border: 1px solid #59403a;
   width: 15%;
 }
+.lineLast {
+  border: 1px solid #59403a;
+  width: 15%;
+  margin-bottom: 3rem;
+}
+.border{
+  border-radius: 4px;
+}
+.lining {
+  border: 1px solid #59403a;
+  width: 90%;
+  margin: auto;
+}
+.cvdiv {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 a:hover,
 a:focus {
   text-decoration: none;
@@ -218,9 +218,14 @@ a:focus {
 .DownloadCv {
   outline-style: none;
   border: 2px solid #59403a;
-  background-color: none;
+  background-color: #fff;
   color: #59403a;
   padding: 1rem;
+}
+.DownloadCv:hover {
+  color: #fff;
+  background-color: #59403a;
+  border: 2px solid #fff;
 }
 .btn-down:hover {
   background: #fff;
@@ -456,7 +461,10 @@ ul.nav li.active a:before {
   text-align: center;
 }
 .heading h2 {
-  font-family: "helvetica_ce_55_romanregular";
+  font-family: 'Barlow', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  font-family: 'Fraunces', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 .heading p {
   padding: 20px 0px;
@@ -464,6 +472,7 @@ ul.nav li.active a:before {
   font-weight: bolder;
   color: #555;
 }
+
 .ab-sec {
   text-align: justify;
 }

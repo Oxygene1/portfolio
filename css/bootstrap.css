@@ -6562,9 +6562,9 @@ button.close {
 .pull-right {
   float: right !important;
 }
-.pull-left {
+/* .pull-left {
   float: left !important;
-}
+} */
 .hide {
   display: none !important;
 }

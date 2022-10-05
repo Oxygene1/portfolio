@@ -215,11 +215,12 @@ a:focus {
   top: 20px;
   font-size: 17px;
 }
-.DownloadCv{
-  outline-style:none;
-  background-color:#fff;
-  color:#59403a;
-  
+.DownloadCv {
+  outline-style: none;
+  border: 2px solid #59403a;
+  background-color: none;
+  color: #59403a;
+  padding: 1rem;
 }
 .btn-down:hover {
   background: #fff;
@@ -317,7 +318,14 @@ ul.nav li.active a:before {
   -webkit-transition: all 0.3s;
 }
 /*Slider-stylesheets-include-here*/
-
+.Reactimg {
+  color: #fcba03;
+  width: 3rem;
+  height: 3rem;
+}
+/* .Reactimg:hover{
+  color: #fff;
+} */
 #home-carousel .item {
   background-position: center top;
   background-repeat: no-repeat;
@@ -498,7 +506,7 @@ ul.nav li.active a:before {
   margin: 25px 0;
 }
 .media.service-box .pull-left {
-  margin-right: 20px;
+  padding: 1rem;
 }
 .media.service-box .pull-left > i {
   font-size: 24px;

@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Open+Sans:wght@300;400;500;600&display=swap");
 
 * {
   margin: 0 auto;
 }
 
-
 body {
-  font-family: 'Barlow', sans-serif;
-  font-family: 'DM Sans', sans-serif;
-  font-family: 'Fraunces', serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Barlow", sans-serif;
+  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
+  font-family: "Open Sans", sans-serif;
 }
 /*for-section-text-start-here*/
 
@@ -120,10 +119,10 @@ p {
   color: #666;
   font-weight: bolder;
   line-height: 25px;
-  font-family: 'Barlow', sans-serif;
-  font-family: 'DM Sans', sans-serif;
-  font-family: 'Fraunces', serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Barlow", sans-serif;
+  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
+  font-family: "Open Sans", sans-serif;
 }
 h1,
 h2,
@@ -137,10 +136,10 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Barlow', sans-serif;
-  font-family: 'DM Sans', sans-serif;
-  font-family: 'Fraunces', serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Barlow", sans-serif;
+  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
+  font-family: "Open Sans", sans-serif;
 }
 h1 {
   color: #fff;
@@ -187,7 +186,7 @@ span {
   width: 15%;
   margin-bottom: 3rem;
 }
-.border{
+.border {
   border-radius: 4px;
 }
 .lining {
@@ -461,10 +460,10 @@ ul.nav li.active a:before {
   text-align: center;
 }
 .heading h2 {
-  font-family: 'Barlow', sans-serif;
-  font-family: 'DM Sans', sans-serif;
-  font-family: 'Fraunces', serif;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Barlow", sans-serif;
+  font-family: "DM Sans", sans-serif;
+  font-family: "Fraunces", serif;
+  font-family: "Open Sans", sans-serif;
 }
 .heading p {
   padding: 20px 0px;
@@ -486,13 +485,16 @@ ul.nav li.active a:before {
 /*Background-stylesheets-include-here*/
 .bg-sec {
   background: #59403a;
-  margin-top: 10px;
-  padding: 1% 0%;
+  /* margin-top: 10px; */
+  padding: 3rem 0;
 }
 .bg-sec h3 {
   color: #ffffff;
   text-transform: none;
   font-weight: bolder;
+}
+.Aboutme {
+  width: 80%;
 }
 .bg-sec p {
   color: #ffffff;
@@ -1426,3 +1428,18 @@ a.btn-learn:hover {
 }
 
 /*Basic-Stylesheets-End-Here*/
+@media only screen and (max-width: 500px) {
+  .features-sec {
+    display: flex;
+    flex-direction: column;
+  }
+  .service-box {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .scrolltocv {
+    display: flex;
+    flex-direction: column;
+  }
+}

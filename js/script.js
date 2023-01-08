@@ -321,8 +321,8 @@ function sendEmail() {
       }, 2000);
     })
     .catch(function (error) {
-      console.log(error);
       setTimeout(function () {
+        console.log(error);
         let errorMessage = `there was an error while sending your message`;
         alertresponse.innerHTML = `<p class="errorMessage">${errorMessage}</p>`;
       }, 2000);

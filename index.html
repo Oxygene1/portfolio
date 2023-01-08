@@ -29,10 +29,16 @@
     <link rel="stylesheet" type="text/css" href="css/owl.theme.css" />
     <link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />
     <link href='https://css.gg/code-climate.css' rel='stylesheet'>
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-  [endif]-->
+    <link rel="icon" href="./images/Features/ib-rel.png">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("OLRMFQZ5j9zV-ntFB");
+      })();
+    </script>
   </head>
   <body data-spy="scroll" data-target=".navbar-default" data-offset="100">
     <!--Preloader-->
@@ -191,7 +197,7 @@
           </p>
         </div>
         <div class="">
-          <button onClick="scrolldiv()" class="btn-down border">Download</button>
+          <button onclick="downloadPDF()"  class="btn-down border">Download</button>
         </div>
       </div>
     </div>
@@ -271,6 +277,38 @@
                 </div>
               </div>
             </div>
+
+            <div
+              class="col-md-4 col-sm-6 col-xs-6 wow fadeInUp"
+              data-wow-duration="300ms"
+              data-wow-delay="100ms"
+            >
+              <div class="media service-box">
+                <div class="pull-left"><i class="fa gg-tikcode"><img class="Reactimg" src="images/Logo/tailwindcss.svg" alt=""></i></div>
+                <div class="media-body">
+                  <h5 class="media-heading">React Native</h5>
+                  <p>
+                    Apart from vanilla CSS, my styling method aso span across other styling fameworks and methods such as Tailwind, Bootstrap, and styled components.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="col-md-4 col-sm-6 col-xs-6 wow fadeInUp"
+              data-wow-duration="300ms"
+              data-wow-delay="100ms"
+            >
+              <div class="media service-box">
+                <div class="pull-left"><i class="fa gg-tikcode"><img class="Reactimg" src="images/Logo/tailwindcss.svg" alt=""></i></div>
+                <div class="media-body">
+                  <h5 class="media-heading">Material UI</h5>
+                  <p>
+                    Apart from vanilla CSS, my styling method aso span across other styling fameworks and methods such as Tailwind, Bootstrap, and styled components.
+                  </p>
+                </div>
+              </div>
+            </div>
             <!--/.col-md-4-->
             <div
               class="col-md-4 col-sm-6 col-xs-6 wow fadeInUp"
@@ -302,6 +340,8 @@
                   </p>
                 </div>
               </div>
+
+              
             </div>
             <!--/.col-md-4-->
           </div>
@@ -718,7 +758,7 @@
     <section id="blog">
       <div class="lining"></div>
       <div class="container cvdiv">
-        <button class="DownloadCv border" onclick="DownloadFile('../books/Abdulganiyu-ibrahim.pdf')">Download my CV</button>
+        <button class="DownloadCv border" onclick="downloadPDF()">Download my CV</button>
         
       </div>
       <div class="lining"></div>
@@ -758,6 +798,7 @@
             </ul>
           </div>
           <div class="col-md-6 col-sm-6">
+            <div id="alertresponse"></div>
             <form
               id="main-contact-form"
               name="contact-form"
@@ -777,6 +818,7 @@
                       class="form-control"
                       placeholder="Name"
                       required="required"
+                      id="from_name"
                     />
                   </div>
                 </div>
@@ -788,16 +830,18 @@
                       class="form-control"
                       placeholder="Email Address"
                       required="required"
+                      id="from_email"
                     />
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <input
-                  type="text"
-                  name="subject"
+                  type="tel"
+                  name="phone"
+                  id="from_phone"
                   class="form-control"
-                  placeholder="Title"
+                  placeholder="Phone number"
                   required="required"
                 />
               </div>
@@ -807,14 +851,14 @@
                   id="message"
                   class="form-control"
                   rows="4"
-                  placeholder="What serviceswould you like to ask for?"
+                  placeholder="What service would you like to ask for?"
                   required="required"
                 ></textarea>
               </div>
-              <a class="btn-send col-md-12 col-sm-12 col-xs-12 border" href="#"
-                >Send</a
-              >
+              <button onclick="sendEmail()" id="myButton"  class="btn-send col-md-12 col-sm-12 col-xs-12 border"
+              >send</button>
             </form>
+            
           </div>
         </div>
       </div>
@@ -833,7 +877,7 @@
           <a href="https://www.facebook.com/abdulganiyu.ibrahim.96742/"><i class="fa fa-facebook-f"></i></a>
         </li>
         <li class="twitter hvr-pulse">
-          <a href="https://twitter.com/yourelderbruda"><i class="fa fa-twitter"></i></a>
+          <a href="https://twitter.com/techibrahimng"><i class="fa fa-twitter"></i></a>
         </li>
         <li class="linkedin hvr-pulse">
           <a href="https://www.linkedin.com/in/ibrahim-abdulganiyu-10208a202/"><i class="fa fa-linkedin"></i></a>
@@ -853,7 +897,7 @@
     <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
     <!--NiceScroll-Jquery-->
     <script type="text/javascript" src="js/jquery.nicescroll.js"></script>
-    <script type="text/javascript" src="js/waypoints.min.js"></script>
+    <!-- <script type="text/javascript" src="js/waypoints.min.js"></script> -->
     <!--Isotopes-->
     <script type="text/javascript" src="js/jquery.isotope.js"></script>
     <!--Wow-Jquery-->
@@ -865,12 +909,8 @@
     <script type="text/javascript" src="js/owl.carousel.js"></script>
     <!--Main-Scripts-->
     <script type="text/javascript" src="js/script.js"></script>
+    <!-- <script src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
   </body>
 </html>
 
-<!-- Hosting24 Analytics Code -->
-<script
-  type="text/javascript"
-  src="http://stats.hosting24.com/count.php"
-></script>
-<!-- End Of Analytics Code -->
+

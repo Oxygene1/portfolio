@@ -3,7 +3,12 @@
 * {
   margin: 0 auto;
 }
-
+.successMessage {
+  color: green;
+}
+.errorMessage {
+  color: red;
+}
 body {
   font-family: "Barlow", sans-serif;
   font-family: "DM Sans", sans-serif;
@@ -252,13 +257,15 @@ a.btn-order:hover {
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
 }
-a.btn-send {
+.btn-send {
   color: #59403a;
   border: 2px solid #59403a;
-  padding: 2% 0%;
+  padding: 2%;
   font-size: 15px;
+  outline-style: none;
+  background-color: #fff;
 }
-a.btn-send:hover {
+.btn-send:hover {
   background: #59403a;
   color: #fff;
   transition: all 0.5s;

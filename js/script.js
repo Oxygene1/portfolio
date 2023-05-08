@@ -290,8 +290,8 @@ $(document).ready(function () {
 
 function downloadPDF() {
   var link = document.createElement("a");
-  link.href = "../books/Abdulganiyu-Ibrahim.pdf";
-  link.download = "Abdulganiyu-Ibrahim.pdf";
+  link.href = "../books/Abdulganiyu-Ibrahim.docx";
+  link.download = "Abdulganiyu-Ibrahim.docx";
   link.dispatchEvent(new MouseEvent("click"));
 }
 

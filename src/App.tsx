@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import { ProductCard } from "./components/card/productCard";
+import { useState, useRef } from "react";
 import { Header } from "./components/header/index";
 import {
   Card,
@@ -9,11 +8,8 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { Box } from "@mui/material";
-import { RocketLaunchIcon } from "@heroicons/react/24/solid";
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import MobileStepper from "@mui/material/MobileStepper";
-import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import Paper from "@mui/material/Paper";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
@@ -24,13 +20,10 @@ import nupat from "./assets/nupat.png";
 import affilbase from "./assets/affilbase.png";
 import { PopupWidget } from "react-calendly";
 import twitter from "./assets/twitter.png";
-
 import tiktok from "./assets/tiktok.png";
 import linkedin from "./assets/linkedin.png";
 import github from "./assets/github.png";
-import instagram from "./assets/innstagrem.png";
 import emailjs from "emailjs-com";
-
 import { FormProvider, useForm } from "react-hook-form";
 import resume from "./assets/Resume-Ibrahim-Abdulganiyu.pdf";
 import javascript from "./assets/javasript.png";
@@ -48,9 +41,9 @@ import mogondb from "./assets/mongodb.png";
 import express from "./assets/express.png";
 import material from "./assets/material.png";
 import emailjsIcon from "./assets/emailjsIcon.png";
-import { Element } from "react-scroll";
 import affil from "./assets/affil.svg";
 import TL from "./assets/TL.png";
+import instagram from "./assets/innstagrem.png";
 import { TypeAnimation } from "react-type-animation";
 import curly from "./assets/curly.png";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -223,25 +216,25 @@ function App() {
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = images.length;
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  // const handleNext = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  // };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  // const handleBack = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  // };
 
   const handleStepChange = (step: number) => {
     setActiveStep(step);
   };
   type FormValues = {
-    email: string;
-    name: string;
-    phoneNumber: string;
-    message: string;
+    email: any;
+    name: any;
+    phoneNumber: any;
+    message: any;
   };
   const form = useRef<HTMLFormElement>(null);
-  const sendEmail = (formData: FormValues) => {
+  const sendEmail = (formData: any) => {
     emailjs
       .sendForm(
         "service_ajo817t",
@@ -294,9 +287,7 @@ function App() {
         <Typography variant="div" className="w-full mb-5 lg:mb-0">
           <TypeAnimation
             sequence={[
-              // Same substring at the start will only be typed out once, initially
               "Ibrahim is a Software Engineer",
-              1000, // wait 1s before replacing "Mice" with "Hamsters"
               "Ibrahim is a Tech Tutor",
               1000,
               "Ibrahim is a brand designer",
@@ -333,7 +324,7 @@ function App() {
         </Typography>
         <Typography
           variant="div"
-          className="w-full bg-ibDisplay bg-cover h-[300px] lg:h-[500px] bg-no-repeat rounded-[10px] md:rounded-[20px]"
+          className="w-full myPoster bg-cover h-[300px] lg:h-[500px] bg-no-repeat rounded-[10px] md:rounded-[20px]"
         >
           <Typography variant="div" className="w-full h-full"></Typography>
         </Typography>
@@ -349,7 +340,7 @@ function App() {
             <Typography as="p" className="">
               Check my socials to link up with me
             </Typography>
-            <Typography as="img" className="h-[300px]" src={curly} />
+            <Typography as="img" className="h-[200px]" src={curly} />
           </Typography>
         </Typography>
       </Box>
@@ -369,7 +360,7 @@ function App() {
         >
           <Typography
             as="div"
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-2"
+            className="grid md:grid-cols-2 gap-1 lg:grid-cols-4"
           >
             <Typography
               as="div"
@@ -409,13 +400,17 @@ function App() {
               as="div"
               className="flex items-center justify-center gap-1"
             >
-              <Typography as="img" src={tiktok} className="w-[20px] h-[20px]" />
+              <Typography
+                as="img"
+                src={instagram}
+                className="w-[20px] h-[20px]"
+              />
               <Typography
                 className="cursor-pointer"
                 as="a"
-                href="tiktok.com/@ibrahimxtech"
+                href="https://instagram.com/ibrahimxtech?igshid=MzNlNGNkZWQ4Mg=="
               >
-                Tiktok: @ibrahimxtech
+                Instagram: @ibrahimxtech
               </Typography>
             </Typography>
             <Typography
@@ -510,7 +505,7 @@ function App() {
             enableMouseEvents
           >
             {images.map((step, index) => (
-              <div key={step?.label}>
+              <Typography as="div" key={step?.label}>
                 {Math.abs(activeStep - index) <= 2 ? (
                   <Box
                     component="img"
@@ -524,7 +519,7 @@ function App() {
                     alt={step.label}
                   />
                 ) : null}
-              </div>
+              </Typography>
             ))}
           </AutoPlaySwipeableViews>
           <MobileStepper

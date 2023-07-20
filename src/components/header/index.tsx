@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   Navbar,
   Collapse,
@@ -7,9 +6,13 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-scroll";
+import { useState, useEffect } from "react";
 function NavList() {
   return (
-    <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <Typography
+      as="ul"
+      className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6"
+    >
       <Typography
         as="li"
         variant="small"
@@ -90,17 +93,17 @@ function NavList() {
           Experiences
         </Link>
       </Typography>
-    </ul>
+    </Typography>
   );
 }
 
-export const Header = (): React.FC => {
-  const [openNav, setOpenNav] = React.useState<boolean>(false);
+export const Header = () => {
+  const [openNav, setOpenNav] = useState<boolean>(false);
 
   const handleWindowResize = () =>
     window.innerWidth >= 960 && setOpenNav(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
@@ -110,7 +113,10 @@ export const Header = (): React.FC => {
 
   return (
     <Navbar className="min-w-full rounded-none !shadow-none mb-[20px] px-6 py-3">
-      <div className="flex items-center justify-between text-blue-gray-900">
+      <Typography
+        as="div"
+        className="flex items-center justify-between text-blue-gray-900"
+      >
         <Typography
           as="a"
           href="#"
@@ -119,9 +125,9 @@ export const Header = (): React.FC => {
         >
           Abdulganiyu Ibrahim
         </Typography>
-        <div className="hidden lg:block">
+        <Typography as="div" className="hidden lg:block">
           <NavList />
-        </div>
+        </Typography>
         <IconButton
           variant="text"
           className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -134,7 +140,7 @@ export const Header = (): React.FC => {
             <Bars3Icon className="h-6 w-6" strokeWidth={2} />
           )}
         </IconButton>
-      </div>
+      </Typography>
       <Collapse open={openNav}>
         <NavList />
       </Collapse>

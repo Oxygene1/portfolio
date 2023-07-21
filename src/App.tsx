@@ -20,7 +20,7 @@ import nupat from "./assets/nupat.png";
 import affilbase from "./assets/affilbase.png";
 import { PopupWidget } from "react-calendly";
 import twitter from "./assets/twitter.png";
-import tiktok from "./assets/tiktok.png";
+// import tiktok from "./assets/tiktok.png";
 import linkedin from "./assets/linkedin.png";
 import github from "./assets/github.png";
 import emailjs from "emailjs-com";
@@ -46,8 +46,8 @@ import TL from "./assets/TL.png";
 import instagram from "./assets/innstagrem.png";
 import { TypeAnimation } from "react-type-animation";
 import curly from "./assets/curly.png";
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 function App() {
   const images = [
     {
@@ -93,7 +93,7 @@ function App() {
       id: 2,
       title: "Vanilla CSS",
       description:
-        "Apart from vanilla CSS, my styling method aso span across other styling frameworks and methods such as Tailwind, Bootstrap, and styled components.",
+        "Apart from vanilla CSS, my styling method also span across other styling frameworks and methods such as Tailwind, Bootstrap, and styled components.",
       link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
       icon: css,
     },
@@ -212,7 +212,7 @@ function App() {
       icon: redux,
     },
   ];
-  const theme = useTheme();
+  const theme = useTheme<any>();
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = images.length;
 
@@ -243,10 +243,10 @@ function App() {
         "xeJgl9bgaJn5fCkpD"
       )
       .then(
-        (result) => {
+        (result: any) => {
           console.log(result.text);
         },
-        (error) => {
+        (error: any) => {
           console.log(error.text);
         }
       );
@@ -281,10 +281,10 @@ function App() {
     <>
       <Header />
       <Typography
-        variant="div"
+        as="div"
         className="grid lg:grid-cols-2 gap-5 lg:px-[100px] px-[30px] mb-[20px] lg:mb-[40px]"
       >
-        <Typography variant="div" className="w-full mb-5 lg:mb-0">
+        <Typography as="div" className="w-full mb-5 lg:mb-0">
           <TypeAnimation
             sequence={[
               "Ibrahim is a Software Engineer",
@@ -326,7 +326,7 @@ function App() {
           variant="div"
           className="w-full myPoster bg-cover h-[300px] lg:h-[500px] bg-no-repeat rounded-[10px] md:rounded-[20px]"
         >
-          <Typography variant="div" className="w-full h-full"></Typography>
+          <Typography as="div" className="w-full h-full"></Typography>
         </Typography>
       </Typography>
       <Box className="flex justify-center lg:hidden">
@@ -353,7 +353,7 @@ function App() {
           Checkout my socials
         </Typography>
       </Typography>
-      <Typography variant="div" className="flex justify-center pb-[15px]">
+      <Typography as="div" className="flex justify-center pb-[15px]">
         <Typography
           as="div"
           className="flex justify-center mb-[20px] border-b-2 border-b-[#607d8b] shadow-xl w-[90%] md:w-[70%] p-2"
@@ -373,7 +373,7 @@ function App() {
               />
               <Typography
                 className="cursor-pointer"
-                as="a"
+                variant="a"
                 href="https://twitter.com/ibrahimxtech"
               >
                 twitter: @ibrahimxtech
@@ -449,17 +449,13 @@ function App() {
                     src={data.icon}
                     className="text-[#607d8b] w-12 h-12 mb-4"
                   />
-                  <Typography variant="h5" className="mb-2 tex-[#607d8b]">
+                  <Typography as="h5" className="mb-2 tex-[#607d8b]">
                     {data.title}
                   </Typography>
                   <Typography>{data.description}</Typography>
                 </CardBody>
                 <CardFooter className="pt-0">
-                  <Typography
-                    variant="a"
-                    href={data.link}
-                    className="inline-block"
-                  >
+                  <Typography as="a" href={data.link} className="inline-block">
                     <Button
                       size="sm"
                       variant="text"
@@ -504,7 +500,7 @@ function App() {
             onChangeIndex={handleStepChange}
             enableMouseEvents
           >
-            {images.map((step, index) => (
+            {images?.map((step, index) => (
               <Typography as="div" key={step?.label}>
                 {Math.abs(activeStep - index) <= 2 ? (
                   <Box

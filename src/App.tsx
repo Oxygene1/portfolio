@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
-import SwipeableViews from "react-swipeable-views";
+import SwipeableViews, { SwipeableViewsProps } from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 import { useTheme } from "@material-tailwind/react/index";
 import lasmab from "./assets/lasmab.png";
@@ -46,7 +46,11 @@ import { TypeAnimation } from "react-type-animation";
 import curly from "./assets/curly.png";
 import { Theme } from "@material-ui/core/styles";
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+type AutoPlayType = <P extends object>(
+  Component: React.ComponentType<P>
+) => React.ComponentType<P>;
+
+const AutoPlaySwipeableViews = autoPlay<SwipeableViewsProps>(SwipeableViews);
 
 // type FormValues = {
 //   email: string;

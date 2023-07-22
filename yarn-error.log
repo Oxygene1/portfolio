@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/mac/.nvm/versions/node/v20.0.0/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js add react-swipeable-views
+  /Users/mac/.nvm/versions/node/v20.0.0/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js add @types/react-swipeable-views
 
 PATH: 
   /Users/mac/.rvm/gems/ruby-3.0.0/bin:/Users/mac/.rvm/gems/ruby-3.0.0@global/bin:/Users/mac/.rvm/rubies/ruby-3.0.0/bin:/Users/mac/.nvm/versions/node/v20.0.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/mac/Library/Android/sdk/platform-tools:/Users/mac/.rvm/bin
@@ -14,12 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error [ERR_SOCKET_CONNECTION_TIMEOUT]: Socket connection timeout
-      at new NodeError (node:internal/errors:399:5)
-      at internalConnectMultiple (node:net:1098:20)
-      at Timeout.internalConnectMultipleTimeout (node:net:1637:3)
-      at listOnTimeout (node:internal/timers:575:11)
-      at process.processTimers (node:internal/timers:514:7)
+  Error: EEXIST: file already exists, symlink '../../../../js-yaml/bin/js-yaml.js' -> '/Users/mac/Documents/GitHub/portfolio/node_modules/@eslint/eslintrc/node_modules/.bin/js-yaml'
 
 npm manifest: 
   {

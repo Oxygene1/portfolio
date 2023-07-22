@@ -20,11 +20,9 @@ import nupat from "./assets/nupat.png";
 import affilbase from "./assets/affilbase.png";
 import { PopupWidget } from "react-calendly";
 import twitter from "./assets/twitter.png";
-// import tiktok from "./assets/tiktok.png";
 import linkedin from "./assets/linkedin.png";
 import github from "./assets/github.png";
 import emailjs from "emailjs-com";
-import { FormProvider, useForm } from "react-hook-form";
 import resume from "./assets/Resume-Ibrahim-Abdulganiyu.pdf";
 import javascript from "./assets/javasript.png";
 import redux from "./assets/redux.png";
@@ -46,8 +44,16 @@ import TL from "./assets/TL.png";
 import instagram from "./assets/innstagrem.png";
 import { TypeAnimation } from "react-type-animation";
 import curly from "./assets/curly.png";
+import { Theme } from "@material-ui/core/styles";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+// type FormValues = {
+//   email: string;
+//   name: string;
+//   phoneNumber: string;
+//   message: string;
+// };
 function App() {
   const images = [
     {
@@ -212,7 +218,7 @@ function App() {
       icon: redux,
     },
   ];
-  const theme = useTheme<any>();
+  const theme = useTheme<Theme>();
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = images.length;
 
@@ -227,36 +233,27 @@ function App() {
   const handleStepChange = (step: number) => {
     setActiveStep(step);
   };
-  type FormValues = {
-    email: any;
-    name: any;
-    phoneNumber: any;
-    message: any;
-  };
-  const form = useRef<HTMLFormElement>(null);
-  const sendEmail = (formData: any) => {
+
+  const form = useRef(null);
+  const sendEmail = () => {
     emailjs
       .sendForm(
         "service_ajo817t",
         "template_75vn9zs",
-        formData,
+        form,
         "xeJgl9bgaJn5fCkpD"
       )
       .then(
-        (result: any) => {
-          console.log(result.text);
+        (result) => {
+          console.log(result?.text);
+          form.current?.reset();
         },
-        (error: any) => {
-          console.log(error.text);
+        (error) => {
+          console.log(error?.text);
         }
       );
   };
-  const methods = useForm<FormValues>();
 
-  const onSubmit = (data: FormValues) => {
-    sendEmail(data);
-    form.current?.reset();
-  };
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = resume;
@@ -577,40 +574,29 @@ function App() {
           <Typography as="h3" className="text-center mb-5 font-[600]">
             Contact me here
           </Typography>
-          <FormProvider {...methods}>
-            <form
-              onSubmit={methods.handleSubmit(onSubmit)}
-              className="grid"
-              ref={form}
+
+          <form onSubmit={sendEmail} className="grid" ref={form}>
+            <input
+              className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
+              placeholder="input your email address"
+            />
+            <input
+              className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
+              placeholder="input your name here"
+            />
+            <input
+              className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
+              placeholder="input your phone number here"
+              type="tel"
+            />
+            <textarea className="mb-3 border-2 px-[10px] h-[90px] py-[5px] rounded-xl" />
+            <Button
+              className="bg-gradient-to-r from-blue-gray-300 to-gray-400 py-[10px] rounded-[10px] text-white"
+              type="submit"
             >
-              <input
-                {...methods.register("email", { required: true })}
-                className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
-                placeholder="input your email address"
-              />
-              <input
-                {...methods.register("name", { required: true })}
-                className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
-                placeholder="input your name here"
-              />
-              <input
-                {...methods.register("phoneNumber", { required: true })}
-                className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
-                placeholder="input your phone number here"
-                type="tel"
-              />
-              <textarea
-                {...methods.register("message", { required: true })}
-                className="mb-3 border-2 px-[10px] h-[90px] py-[5px] rounded-xl"
-              />
-              <Button
-                className="bg-gradient-to-r from-blue-gray-300 to-gray-400 py-[10px] rounded-[10px] text-white"
-                type="submit"
-              >
-                Submit
-              </Button>
-            </form>
-          </FormProvider>
+              Submit
+            </Button>
+          </form>
         </Typography>
       </Box>
 

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, FormEvent } from "react";
 import { Header } from "./components/header/index";
 import {
   Card,
@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
-import SwipeableViews, { SwipeableViewsProps } from "react-swipeable-views";
+import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 import { useTheme } from "@material-tailwind/react/index";
 import lasmab from "./assets/lasmab.png";
@@ -46,7 +46,7 @@ import { TypeAnimation } from "react-type-animation";
 import curly from "./assets/curly.png";
 // import { Theme } from "@material-ui/core/styles";
 
-const AutoPlaySwipeableViews = autoPlay<SwipeableViewsProps>(SwipeableViews);
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 // type FormValues = {
 //   email: string;
@@ -234,24 +234,23 @@ function App() {
     setActiveStep(step);
   };
 
-  const form = useRef<string | HTMLFormElement>(null);
-  const sendEmail = () => {
-    emailjs
-      .sendForm(
-        "service_ajo817t",
-        "template_75vn9zs",
-        form,
-        "xeJgl9bgaJn5fCkpD"
-      )
-      .then(
-        (result) => {
-          console.log(result?.text);
-          form?.current?.reset();
-        },
-        (error) => {
-          console.log(error?.text);
-        }
-      );
+  const form = useRef<HTMLFormElement | null>(null);
+  const sendEmail = async (event: FormEvent) => {
+    event.preventDefault();
+    if (form.current) {
+      try {
+        const result = await emailjs.sendForm(
+          "service_ajo817t",
+          "template_75vn9zs",
+          form.current,
+          "xeJgl9bgaJn5fCkpD"
+        );
+        console.log(result?.text);
+        form.current.reset();
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   const handleDownload = () => {

@@ -297,8 +297,7 @@ function App() {
             repeat={Infinity}
           />
           <Typography variant="p">
-            A fullstack mobile and web developer from Lagos Nigeria with a BSc
-            in Social Work from University of Ilorin, Ilorin, Kwara State. I
+            I am a fullstack mobile and web developer from Lagos Nigeria. I
             design, I develop, and I maintain fully-fledged and functioning
             platforms with databases or servers, I'm eager to work for any
             respectable organization, individual or entity who is interested in

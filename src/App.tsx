@@ -44,11 +44,7 @@ import TL from "./assets/TL.png";
 import instagram from "./assets/innstagrem.png";
 import { TypeAnimation } from "react-type-animation";
 import curly from "./assets/curly.png";
-import { Theme } from "@material-ui/core/styles";
-
-type AutoPlayType = <P extends object>(
-  Component: React.ComponentType<P>
-) => React.ComponentType<P>;
+// import { Theme } from "@material-ui/core/styles";
 
 const AutoPlaySwipeableViews = autoPlay<SwipeableViewsProps>(SwipeableViews);
 
@@ -222,7 +218,7 @@ function App() {
       icon: redux,
     },
   ];
-  const theme = useTheme<Theme>();
+  const theme = useTheme();
   const [activeStep, setActiveStep] = useState(0);
   const maxSteps = images.length;
 
@@ -238,7 +234,7 @@ function App() {
     setActiveStep(step);
   };
 
-  const form = useRef(null);
+  const form = useRef<string | HTMLFormElement>(null);
   const sendEmail = () => {
     emailjs
       .sendForm(
@@ -250,7 +246,7 @@ function App() {
       .then(
         (result) => {
           console.log(result?.text);
-          form.current?.reset();
+          form?.current?.reset();
         },
         (error) => {
           console.log(error?.text);
@@ -520,6 +516,8 @@ function App() {
             ))}
           </AutoPlaySwipeableViews>
           <MobileStepper
+            backButton=""
+            nextButton=""
             steps={maxSteps}
             position="static"
             activeStep={activeStep}
@@ -578,7 +576,6 @@ function App() {
           <Typography as="h3" className="text-center mb-5 font-[600]">
             Contact me here
           </Typography>
-
           <form onSubmit={sendEmail} className="grid" ref={form}>
             <input
               className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
@@ -611,7 +608,7 @@ function App() {
            * react-calendly uses React's Portal feature (https://reactjs.org/docs/portals.html) to render the popup modal. As a result, you'll need to
            * specify the rootElement property to ensure the modal is inserted into the correct domNode.
            */
-          rootElement={document.getElementById("root")}
+          rootElement={document.getElementById("root")!}
           text="Schedule a meeting with Ibrahim!"
           textColor="#ffffff"
           color="gray"

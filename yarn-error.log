@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/mac/.nvm/versions/node/v20.0.0/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js add @types/react-swipeable-views --dev
+  /Users/mac/.nvm/versions/node/v20.0.0/bin/node /usr/local/Cellar/yarn/1.22.19/libexec/bin/yarn.js add @types/react-swipeable-views-utils
 
 PATH: 
   /Users/mac/.rvm/gems/ruby-3.0.0/bin:/Users/mac/.rvm/gems/ruby-3.0.0@global/bin:/Users/mac/.rvm/rubies/ruby-3.0.0/bin:/Users/mac/.nvm/versions/node/v20.0.0/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/mac/Library/Android/sdk/platform-tools:/Users/mac/.rvm/bin

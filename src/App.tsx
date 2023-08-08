@@ -23,7 +23,7 @@ import twitter from "./assets/twitter.png";
 import linkedin from "./assets/linkedin.png";
 import github from "./assets/github.png";
 import emailjs from "emailjs-com";
-import resume from "./assets/Resume-Ibrahim-Abdulganiyu.pdf";
+import resume from "./assets/IBRAHIM-ABDULGANIYU-RESUME.pdf";
 import javascript from "./assets/javasript.png";
 import redux from "./assets/redux.png";
 import reactIcon from "./assets/react.png";

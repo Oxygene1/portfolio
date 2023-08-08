@@ -283,10 +283,10 @@ function App() {
         <Typography as="div" className="w-full mb-5 lg:mb-0">
           <TypeAnimation
             sequence={[
-              "Ibrahim is a Software Engineer",
+              "Ibrahim is a MERN STACK Engineer",
               "Ibrahim is a Tech Tutor",
               1000,
-              "Ibrahim is a brand designer",
+              "Ibrahim is a Brand designer",
               1000,
               "Ibrahim is a Social media promoter",
               1000,

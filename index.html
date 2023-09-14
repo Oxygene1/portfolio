@@ -9,10 +9,21 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
+    <!-- <script
       type="text/javascript"
       src="https://assets.calendly.com/assets/external/widget.js"
       async
-    ></script>
+    ></script> -->
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "d2fe90e9-1b01-4d12-b4b7-210e969aa030";
+      (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
   </body>
 </html>

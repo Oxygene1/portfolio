@@ -18,7 +18,7 @@ import lasmab from "./assets/lasmab.png";
 import designXcel from "./assets/designXcel.png";
 import nupat from "./assets/nupat.png";
 import affilbase from "./assets/affilbase.png";
-import { PopupWidget } from "react-calendly";
+// import { PopupWidget } from "react-calendly";
 import twitter from "./assets/twitter.png";
 import linkedin from "./assets/linkedin.png";
 import github from "./assets/github.png";

@@ -6,6 +6,7 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 function NavList() {
   return (
@@ -44,6 +45,19 @@ function NavList() {
         >
           Skills
         </Link>
+      </Typography>
+      <Typography
+        as="li"
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-medium"
+      >
+        <NavLink
+          to="learn"
+          className="flex items-center hover:text-blue-500 transition-colors"
+        >
+          Learn
+        </NavLink>
       </Typography>
       <Typography
         as="li"
@@ -118,12 +132,11 @@ export const Header = () => {
         className="flex items-center justify-between text-blue-gray-900"
       >
         <Typography
-          as="a"
-          href="#"
+          as="div"
           variant="h6"
           className="mr-4 text-[20px] font-[600] cursor-pointer py-1.5"
         >
-          Abdulganiyu Ibrahim
+          <NavLink to="">Abdulganiyu Ibrahim</NavLink>
         </Typography>
         <Typography as="div" className="hidden lg:block">
           <NavList />

@@ -2,7 +2,7 @@ import Editor from "@monaco-editor/react";
 import { useState } from "react";
 // import AceEditor from "react-ace";
 export const Learn = () => {
-  const [code, setCode] = useState(`function hello() {
+  const [code] = useState(`function hello() {
     console.log("Hello World!");
   }`);
   return (

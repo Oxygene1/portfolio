@@ -46,7 +46,7 @@ function NavList() {
           Skills
         </Link>
       </Typography>
-      <Typography
+      {/* <Typography
         as="li"
         variant="small"
         color="blue-gray"
@@ -58,7 +58,7 @@ function NavList() {
         >
           Learn
         </NavLink>
-      </Typography>
+      </Typography> */}
       <Typography
         as="li"
         variant="small"

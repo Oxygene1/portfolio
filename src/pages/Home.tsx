@@ -1,29 +1,28 @@
-import { images, skills, experiences } from "../data/data";
-import { useState, useRef, FormEvent } from "react";
+import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import {
+  Button,
   Card,
   CardBody,
   CardFooter,
   Typography,
-  Button,
 } from "@material-tailwind/react";
+import { useTheme } from "@material-tailwind/react/index";
 import { Alert, AlertTitle, Box } from "@mui/material";
-import { ArrowLongRightIcon } from "@heroicons/react/24/outline";
 import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
+import { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import { useTheme } from "@material-tailwind/react/index";
+import { images, skills } from "../data/data";
 // import { PopupWidget } from "react-calendly";
-import twitter from "../assets/twitter.png";
-import linkedin from "../assets/linkedin.png";
-import github from "../assets/github.png";
-import emailjs from "emailjs-com";
 import resume from "../assets/IBRAHIM-ABDULGANIYU-RESUME.pdf";
+import github from "../assets/github.png";
+import linkedin from "../assets/linkedin.png";
+import twitter from "../assets/twitter.png";
 
-import instagram from "../assets/innstagrem.png";
 import { TypeAnimation } from "react-type-animation";
 import curly from "../assets/curly.png";
+import instagram from "../assets/innstagrem.png";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -36,51 +35,8 @@ export const Home = () => {
     setActiveStep(step);
   };
 
-  const form = useRef<HTMLFormElement | null>(null);
-  const sendEmail = async (event: FormEvent) => {
-    event.preventDefault();
-    if (form?.current) {
-      try {
-        const result = await emailjs?.sendForm(
-          "service_ajo817t",
-          "template_75vn9zs",
-          form?.current,
-          "xeJgl9bgaJn5fCkpD"
-        );
-        console.log(result?.text);
-        form.current.reset();
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
-
-  const handleDownload = () => {
-    // window.open(`${resume}`, "_blank");
-    setSnackBar(true);
-    const link = document.createElement("a");
-    link.href = resume;
-    link.download = "IBRAHIM-ABDULGANIYU-RESUME.pdf";
-
-    // Add a text indicating the download is in progress
-    const downloadText = document.createTextNode("Downloading...");
-    link.appendChild(downloadText);
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    // Remove the download in progress text once the download is complete
-    link.onload = () => {
-      link.removeChild(downloadText);
-      // Show a notification when the download is complete
-      // You can use a library or custom notification component here
-    };
-
-    document.body.removeChild(link);
-  };
   return (
-    <>
+    <Box>
       {snackBar && (
         <Alert
           className="fixed z-50"
@@ -104,12 +60,12 @@ export const Home = () => {
         <Typography as="div" className="w-full mb-5 lg:mb-0">
           <TypeAnimation
             sequence={[
-              "Ibrahim is a MERN STACK Engineer",
+              "Ibrahim is a Frontend Developer",
               "Ibrahim is a Tech Tutor",
               1000,
-              "Ibrahim is a Brand designer",
+              "Ibrahim is a Mobile Application Expert",
               1000,
-              "Ibrahim is a Social media promoter",
+              "Ibrahim is a Web Developer",
               1000,
             ]}
             wrapper="span"
@@ -358,77 +314,47 @@ export const Home = () => {
           </Box>
         </Box>
       </Box>
-      <Box id="contribution" className="mb-[20px]">
-        <Typography as="h3" className="text-center font-[600] mb-5">
-          My experiences
-        </Typography>
-        <Box className="flex justify-center">
-          <Box className="grid items-center md:grid-cols-3 gap-3">
-            {experiences.map((data) => (
-              <Typography
-                as="img"
-                className="h-[40px]"
-                src={data.icon}
-                key={data.id}
-              ></Typography>
-            ))}
+      <Box className="flex justify-center gap-4">
+        <Box>
+          <Typography as="h3" className="text-center font-[600]">
+            Get My Resume
+          </Typography>
+          <Box id="resume" className="flex justify-center">
+            <Typography variant="div">
+              <a
+                href="https://instaresume.io/resume/view/JrCIxdtLo8YZ2fUrd5mz"
+                target="_blank"
+              >
+                <Button className="bg-gradient-to-r from-blue-gray-300 to-gray-400">
+                  Download my Resume
+                </Button>
+              </a>
+            </Typography>
           </Box>
         </Box>
-      </Box>
-      <Box>
-        <Typography as="h3" className="text-center font-[600]">
-          Get My Resume
-        </Typography>
-        <Box id="resume" className="flex justify-center py-[30px]">
-          <Typography variant="div">
-            <Button
-              className="bg-gradient-to-r from-blue-gray-300 to-gray-400"
-              onClick={handleDownload}
-            >
-              Download my Resume
-            </Button>
+        <Box className="flex justify-center">
+          <Typography variant="div" className="">
+            <Typography as="h3" className="text-center font-[600]">
+              Contact me here
+            </Typography>
+            <Box id="resume" className="flex justify-center">
+              <Typography variant="div">
+                <a
+                  href="https://calendly.com/abdulganiyutechng/30min"
+                  target="_blank"
+                >
+                  <Button className="bg-gradient-to-r from-blue-gray-300 to-gray-400">
+                    Schedule a meeting
+                  </Button>
+                </a>
+              </Typography>
+            </Box>
           </Typography>
         </Box>
       </Box>
-      <Box id="form" className="flex justify-center py-[70px]">
-        <Typography variant="div" className="w-[90%] md:w-[60%]">
-          <Typography as="h3" className="text-center mb-5 font-[600]">
-            Contact me here
-          </Typography>
-          <form onSubmit={sendEmail} className="grid" ref={form}>
-            <input
-              className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
-              placeholder="input your email address"
-            />
-            <input
-              className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
-              placeholder="input your name here"
-            />
-            <input
-              className="mb-3 border-2 px-[10px] py-[5px] rounded-xl"
-              placeholder="input your phone number here"
-              type="tel"
-            />
-            <textarea className="mb-3 border-2 px-[10px] h-[90px] py-[5px] rounded-xl" />
-            <Button
-              className="bg-gradient-to-r from-blue-gray-300 to-gray-400 py-[10px] rounded-[10px] text-white"
-              type="submit"
-            >
-              Submit
-            </Button>
-          </form>
-        </Typography>
+      <Box className="pb-[120px] mt-10 flex justify-center">
+        <Typography as="p">Copyright © 2024 Ibrahim Abdulganiyu</Typography>
       </Box>
-
-      {/* <Box>
-    <PopupWidget
-      url="https://calendly.com/abdulganiyutechng"
-      rootElement={document.getElementById("root")!}
-      text="Schedule a meeting with Ibrahim!"
-      textColor="#ffffff"
-      color="gray"
-    />
-  </Box> */}
-    </>
+    </Box>
   );
 };

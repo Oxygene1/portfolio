@@ -23,7 +23,7 @@ import curly from "../assets/curly.png";
 import instagram from "../assets/innstagrem.png";
 import voiceOver from "../assets/voiceIbrahim.mp3";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-import { Dialog, DialogBody, DialogFooter } from "@material-tailwind/react";
+
 export const Home = () => {
   const [hasPlayed, setHasPlayed] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);

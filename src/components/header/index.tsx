@@ -1,114 +1,132 @@
-import {
-  Navbar,
-  Collapse,
-  Typography,
-  IconButton,
-} from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-scroll";
+import {
+  Collapse,
+  IconButton,
+  Navbar,
+  Typography,
+} from "@material-tailwind/react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link } from "react-scroll";
 function NavList() {
-  return (
-    <Typography
-      as="ul"
-      className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6"
-    >
+  const location = window.location.pathname;
+  if (location.includes("learn")) {
+    return (
       <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <Link
-          duration={2000}
-          spy={true}
-          smooth={true}
-          to="resume"
-          className="flex items-center hover:text-blue-500 transition-colors"
-        >
-          Get my Resume
-        </Link>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <Link
-          duration={2000}
-          spy={true}
-          smooth={true}
-          to="skills"
-          className="flex items-center hover:text-blue-500 transition-colors"
-        >
-          Skills
-        </Link>
-      </Typography>
-      {/* <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
+        as="ul"
+        className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6"
       >
         <NavLink
-          to="learn"
+          to=""
           className="flex items-center hover:text-blue-500 transition-colors"
         >
-          Learn
+          Home
         </NavLink>
-      </Typography> */}
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <Link
-          to="form"
-          duration={2000}
-          spy={true}
-          smooth={true}
-          className="flex items-center hover:text-blue-500 transition-colors"
-        >
-          Contact
-        </Link>
       </Typography>
+    );
+  }
+  if (location === "/" || "") {
+    return (
       <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
+        as="ul"
+        className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6"
       >
-        <Link
-          to="socials"
-          duration={2000}
-          spy={true}
-          smooth={true}
-          className="flex items-center hover:text-blue-500 transition-colors"
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-medium"
         >
-          Socials
-        </Link>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-medium"
-      >
-        <Link
-          to="contribution"
-          duration={2000}
-          spy={true}
-          smooth={true}
-          className="flex items-center hover:text-blue-500 transition-colors"
+          <NavLink
+            to="learn"
+            className="flex items-center hover:text-blue-500 transition-colors"
+          >
+            Learn
+          </NavLink>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-medium"
         >
-          Experiences
-        </Link>
+          <Link
+            duration={2000}
+            spy={true}
+            smooth={true}
+            to="resume"
+            className="flex items-center hover:text-blue-500 transition-colors"
+          >
+            Get my Resume
+          </Link>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-medium"
+        >
+          <Link
+            duration={2000}
+            spy={true}
+            smooth={true}
+            to="skills"
+            className="flex items-center hover:text-blue-500 transition-colors"
+          >
+            Skills
+          </Link>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-medium"
+        >
+          <Link
+            to="form"
+            duration={2000}
+            spy={true}
+            smooth={true}
+            className="flex items-center hover:text-blue-500 transition-colors"
+          >
+            Contact
+          </Link>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-medium"
+        >
+          <Link
+            to="socials"
+            duration={2000}
+            spy={true}
+            smooth={true}
+            className="flex items-center hover:text-blue-500 transition-colors"
+          >
+            Socials
+          </Link>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-medium"
+        >
+          <Link
+            to="contribution"
+            duration={2000}
+            spy={true}
+            smooth={true}
+            className="flex items-center hover:text-blue-500 transition-colors"
+          >
+            Experiences
+          </Link>
+        </Typography>
       </Typography>
-    </Typography>
-  );
+    );
+  }
 }
 
 export const Header = () => {

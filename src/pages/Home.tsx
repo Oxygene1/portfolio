@@ -7,57 +7,58 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useTheme } from "@material-tailwind/react/index";
-import { Alert, AlertTitle, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import { images, skills } from "../data/data";
-// import { PopupWidget } from "react-calendly";
-import resume from "../assets/IBRAHIM-ABDULGANIYU-RESUME.pdf";
 import github from "../assets/github.png";
 import linkedin from "../assets/linkedin.png";
 import twitter from "../assets/twitter.png";
+import { images, skills } from "../data/data";
 
 import { TypeAnimation } from "react-type-animation";
 import curly from "../assets/curly.png";
 import instagram from "../assets/innstagrem.png";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+import voiceOver from "../assets/voiceIbrahim.mp3";
+import { Dialog, DialogBody, DialogFooter } from "@material-tailwind/react";
 
 export const Home = () => {
+  const [hasPlayed, setHasPlayed] = useState<boolean>(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const theme = useTheme();
-  const [snackBar, setSnackBar] = useState<boolean>(false);
   const [activeStep, setActiveStep] = useState<number>(0);
   const maxSteps = images.length;
   const handleStepChange = (step: number) => {
     setActiveStep(step);
   };
+  useEffect(() => {
+    const audioPlayed = localStorage.getItem("voiceOverPlayed");
+    if (audioPlayed) {
+      setHasPlayed(true);
+    }
+    audioRef.current = new Audio(voiceOver);
+  }, []);
+
 
   return (
     <Box>
-      {snackBar && (
-        <Alert
-          className="fixed z-50"
-          onClose={() => setSnackBar(false)}
-          severity="success"
-        >
-          <AlertTitle>Success</AlertTitle>
-          Resume download complete{" "}
-          <strong
-            className="cursur-pointer"
-            onClick={() => window.open(`${resume}`, "_blank")}
-          >
-            <button> check it out!</button>
-          </strong>
-        </Alert>
-      )}
       <Typography
         as="div"
         className="grid lg:grid-cols-2 gap-5 lg:px-[100px] px-[30px] mb-[20px] lg:mb-[40px]"
       >
         <Typography as="div" className="w-full mb-5 lg:mb-0">
+          {!hasPlayed && (
+            <p>
+              You have found my portfolio, I am glad we are meeting for the
+              first time{" "}
+            </p>
+          )}
+          {hasPlayed && <p>Welcome back!</p>}
           <TypeAnimation
             sequence={[
               "Ibrahim is a Frontend Developer",
@@ -145,8 +146,9 @@ export const Home = () => {
               />
               <Typography
                 className="cursor-pointer"
-                variant="a"
-                href="https://twitter.com/ibrahimxtech"
+                as="a"
+                target="_blank"
+                href="https://x.com/ibrahimxtech"
               >
                 twitter: @ibrahimxtech
               </Typography>
@@ -163,7 +165,8 @@ export const Home = () => {
               <Typography
                 className="cursor-pointer"
                 as="a"
-                href="https://www.linkedin.com/in/ibrahim-abdulganiyu-10208a202/"
+                target="_blank"
+                href="https://www.linkedin.com/in/ibrahimxtech/"
               >
                 LinkedIn: ibrahim Abdulganiyu
               </Typography>
@@ -180,6 +183,7 @@ export const Home = () => {
               <Typography
                 className="cursor-pointer"
                 as="a"
+                target="_blank"
                 href="https://instagram.com/ibrahimxtech?igshid=MzNlNGNkZWQ4Mg=="
               >
                 Instagram: @ibrahimxtech
@@ -193,6 +197,7 @@ export const Home = () => {
               <Typography
                 className="cursor-pointer"
                 as="a"
+                target="_blank"
                 href="https://github.com/Oxygene1"
               >
                 Github: Oxygene1
@@ -267,6 +272,7 @@ export const Home = () => {
             <Typography>{images[activeStep]?.label}</Typography>
           </Paper>
           <AutoPlaySwipeableViews
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
             axis={theme?.direction === "rtl" ? "x-reverse" : "x"}
             index={activeStep}
             onChangeIndex={handleStepChange}

@@ -6,11 +6,11 @@ import {
   List,
   ListItem,
 } from "@material-tailwind/react";
-import createFolder from "../learnAsset/createFolder.png";
-import createHTML from "../learnAsset/createHTML.jpeg";
-import exclCreate from "../learnAsset/exlCreate.png";
-import nameFile from "../learnAsset/nameFile.png";
-import genearatedHTML from "../learnAsset/generatedHTML.png";
+import createFolder from "../learnAsset/createFolder.jpg";
+import createHTML from "../learnAsset/createHTML.jpg";
+import exclCreate from "../learnAsset/exlCreate.jpg";
+import nameFile from "../learnAsset/nameFile.jpg";
+import genearatedHTML from "../learnAsset/generatedHTML.jpg";
 import Congratulations from "../components/congratulations";
 const Learn_Index: React.FC = () => {
   const setupSteps = [

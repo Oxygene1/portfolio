@@ -10,7 +10,7 @@ import createFolder from "../learnAsset/createFolder.jpg";
 import createHTML from "../learnAsset/createHTML.jpg";
 import exclCreate from "../learnAsset/exlCreate.jpg";
 import nameFile from "../learnAsset/nameFile.jpg";
-import genearatedHTML from "../learnAsset/generatedHTML.jpg";
+import generatedHTML from "../learnAsset/generatedHTML.jpg";
 import Congratulations from "../components/congratulations";
 const Learn_Index: React.FC = () => {
   const setupSteps = [
@@ -32,7 +32,7 @@ const Learn_Index: React.FC = () => {
     },
     {
       step: "After generating the HTML code, save the file and it should look like this 👇",
-      image: genearatedHTML,
+      image: generatedHTML,
     },
   ];
   return (

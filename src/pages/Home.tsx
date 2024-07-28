@@ -21,10 +21,9 @@ import { images, skills } from "../data/data";
 import { TypeAnimation } from "react-type-animation";
 import curly from "../assets/curly.png";
 import instagram from "../assets/innstagrem.png";
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 import voiceOver from "../assets/voiceIbrahim.mp3";
-
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+import { Dialog, DialogBody, DialogFooter } from "@material-tailwind/react";
 export const Home = () => {
   const [hasPlayed, setHasPlayed] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -37,12 +36,40 @@ export const Home = () => {
   };
   useEffect(() => {
     const audioPlayed = localStorage.getItem("voiceOverPlayed");
-    if (audioPlayed) {
+    if (!audioPlayed) {
+      audioRef.current = new Audio(voiceOver);
+      const playAudio = () => {
+        if (audioRef.current && !hasPlayed) {
+          audioRef.current
+            .play()
+            .then(() => {
+              console.log("Audio played successfully");
+              localStorage.setItem("voiceOverPlayed", "true");
+              setHasPlayed(true);
+              removeEventListeners();
+            })
+            .catch((error) => {
+              console.error("Error playing audio:", error);
+            });
+        }
+      };
+      const interactionEvents = ["click", "touchstart", "scroll", "keydown"];
+      const playAudioOnInteraction = () => {
+        playAudio();
+      };
+      const removeEventListeners = () => {
+        interactionEvents.forEach((event) =>
+          document.removeEventListener(event, playAudioOnInteraction)
+        );
+      };
+      interactionEvents.forEach((event) =>
+        document.addEventListener(event, playAudioOnInteraction, { once: true })
+      );
+      return removeEventListeners;
+    } else {
       setHasPlayed(true);
     }
-    audioRef.current = new Audio(voiceOver);
-  }, []);
-
+  }, [hasPlayed]);
 
   return (
     <Box>

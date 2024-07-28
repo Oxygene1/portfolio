@@ -24,7 +24,6 @@ import instagram from "../assets/innstagrem.png";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 import voiceOver from "../assets/voiceIbrahim.mp3";
-import { Dialog, DialogBody, DialogFooter } from "@material-tailwind/react";
 
 export const Home = () => {
   const [hasPlayed, setHasPlayed] = useState<boolean>(false);

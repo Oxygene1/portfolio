@@ -55,7 +55,7 @@ export const Learn = () => {
               </Typography>
               <List>
                 {tableOfContents.map((item, index) => (
-                  <ListItem key={index}>
+                  <ListItem key={index + 1}>
                     <Link
                       to={item.route}
                       className="text-[#607d8b]"

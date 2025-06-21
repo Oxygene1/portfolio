@@ -1,0 +1,9 @@
+/* Remove padding from Ant Design Card body */
+.ant-card-body {
+  padding: 0 !important;
+}
+
+/* If you want to be more specific and only target certain cards, you can use a custom class */
+.no-padding-card .ant-card-body {
+  padding: 15px !important;
+}

@@ -169,11 +169,15 @@ export default function App() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Email</p>
-                  <p className="break-all">{resumeData.email}</p>
+                  <a target="_blank" href={`mailto:${resumeData.email}`}>
+                    <p className="break-all">{resumeData.email}</p>
+                  </a>
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Phone</p>
-                  <p className="break-all">{resumeData.phone}</p>
+                  <a target="_blank" href={`tel:+${resumeData.phone}`}>
+                    <p className="break-all">{resumeData.phone}</p>
+                  </a>
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">LinkedIn</p>
@@ -229,8 +233,8 @@ export default function App() {
 
         {/* Skills Section */}
         {activeTab === "skills" && (
-          <section className="animate-fade-in-up">
-            <h2 className="text-2xl font-semibold mb-6">Skills</h2>
+          <section className="animate-fade-in-up py-6 md:py-0 px-3 md:px-0">
+            <h2 className="text-2xl font-semibold mb-4 md:mb-6">Skills</h2>
             <div className="space-y-6">
               {Object.entries(resumeData.skills)?.map(([category, items]) => (
                 <div key={category}>

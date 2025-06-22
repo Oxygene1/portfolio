@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { cn } from "../../lib/utils";
 import { ProjectTypes } from "../../data";
 import AntCardWithDisabledLint from "../card";
-
+import "./index.css";
 const speedMap = {
   fast: 20,
   normal: 40,
@@ -24,15 +24,27 @@ export const InfiniteMovingCards = ({
 }) => {
   const scrollerRef = useRef<HTMLUListElement>(null);
   const [isReady, setIsReady] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     setIsReady(true);
   }, []);
+  const scrollTimeoutRef = useRef<number | undefined>(undefined);
+  const handleScroll = () => {
+    setIsHovered(true);
+    if (scrollTimeoutRef.current !== undefined) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+    scrollTimeoutRef.current = window.setTimeout(
+      () => setIsHovered(false),
+      1000
+    );
+  };
 
   return (
     <div
       className={cn(
-        "scroller relative z-20 max-w-full w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-full w-full overflow-x-auto overflow-y-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] hide-scroll-bar",
         className
       )}
       style={
@@ -41,14 +53,21 @@ export const InfiniteMovingCards = ({
           "--animation-direction": direction === "left" ? "normal" : "reverse",
         } as React.CSSProperties
       }
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onScroll={handleScroll}
+      tabIndex={0}
     >
       <ul
         ref={scrollerRef}
         className={cn(
           "flex shrink-0 flex-nowrap gap-4 py-4",
-          isReady && "animate-infinite-scroll",
+          isReady && !isHovered && "animate-infinite-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
+        style={{
+          minWidth: "100%",
+        }}
       >
         {[...items, ...items].map((item, idx) => (
           <AntCardWithDisabledLint
@@ -60,16 +79,6 @@ export const InfiniteMovingCards = ({
           />
         ))}
       </ul>
-      <style>{`
-        @keyframes infinite-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-infinite-scroll {
-          animation: infinite-scroll var(--animation-duration, 40s) linear infinite;
-          animation-direction: var(--animation-direction, normal);
-        }
-      `}</style>
     </div>
   );
 };

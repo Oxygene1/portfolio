@@ -6,6 +6,7 @@ export interface ResumeData {
   phone: string;
   linkedin: string;
   github: string;
+  resume:string;
   summary: string;
   experience: Experience[];
   education: Education[];
@@ -40,4 +41,10 @@ export interface Skills {
 export interface AdditionalInfo {
   languages: string;
   engagements: string;
+  openSource: {
+    name: string;
+    description: string;
+    link: string;
+  }[];
+  mobileApps: { name: string; link: string }[];
 }
